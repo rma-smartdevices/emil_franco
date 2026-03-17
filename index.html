@@ -10,17 +10,10 @@
         box-sizing: border-box;
         font-family: "Inter", sans-serif;
       }
-      html {
-        height: 100%;
-        overflow: hidden;
-        margin-top: 0;
-        animation: midnightGradient 18s ease infinite;
-          background-image: url(img/bg.jpg);
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-      }
-
+html {
+  min-height: 100%;
+  margin: 0;
+}
       a {
         text-decoration: none;
       }
@@ -29,15 +22,19 @@
         color: white;
       }
 
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        padding-top: env(safe-area-inset-top);
-      }
-
+body {
+  margin: 0;
+  min-height: 100svh; /* modern mobile viewport fix */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: env(safe-area-inset-top);
+  padding-bottom: env(safe-area-inset-bottom);
+  background-image: url(img/bg.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
       header {
         color: #f0ecec;
         text-align: center;
@@ -50,9 +47,11 @@
         border-radius: 50%;
         width: 150px;
         height: 170px;
-        object-fit: contain;
         margin-bottom: 2rem;
         box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: contain;
       }
 
       h1 {
@@ -120,7 +119,7 @@
       }
 .sublink {
   display: block;
-  background: #787878;
+  background: #f0ecec;
   padding: 12px;
   margin-top: 8px;
   border-radius: 10px;
@@ -133,7 +132,7 @@
   filter: brightness(1.2);
 }
       .link:hover {
-        background: #ddd;
+        background: white;
         filter: brightness(1.2);
         transform: translateY(-2px);
       }
@@ -222,7 +221,7 @@
 
       .popup-content {
         background: #111;
-        color: white;
+        color: #f0ecec;
         padding: 25px;
         border-radius: 12px;
         text-align: center;
@@ -240,12 +239,12 @@
 
       .popup button:first-of-type {
         background: #4da6ff;
-        color: white;
+        color: #f0ecec;
       }
 
       .popup button:last-of-type {
         background: #333;
-        color: white;
+        color: #f0ecec;
       }
 
       /*Load Animation*/
@@ -263,20 +262,11 @@
       /* Mobile tweaks */
 
       @media (max-width: 800px) {
-        .html,
-        body {
-          margin: 0;
-          padding: 0;
-          height: 100%;
-          overflow: hidden;
-          background-image: url(img/bg.jpg);
-          background-position: center;
-          background-repeat: no-repeat;
-          background-size: cover;
-          animation: midnightGradient 18s ease infinite;
-          padding-top: env(safe-area-inset-top);
-        }
-      }
+  body {
+    min-height: 100svh;
+    overflow: hidden;
+  }
+
       .profile-pic {
         width: 140px;
         height: 130px;
@@ -339,12 +329,13 @@
         opacity: 1;
         bottom: 50px;
       }
+    }
     </style>
   </head>
 
   <body>
     <header>
-      <img class="profile-pic" src="img/logo.jpg" alt="Profile Picture" />
+      <img class="profile-pic" src="img/bg.jpg" alt="Profile Picture" />
 
       <h1>Emilio Franco</h1>
       <h4><div class="line-text">Artist</div></h4>
